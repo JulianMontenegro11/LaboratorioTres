@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    codificacion(4,"natural.txt");
+    codificacion(5,"natural.txt");
     return 0;
 }
 

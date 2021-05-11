@@ -6,7 +6,7 @@ void crear_txt(string name){  // funcion para crear un texto.
     text.close(); // es necesario cerrar el texto siempre que se termine de usar.
 }
 
-void escribit(string texto, string nombre, bool modo){
+void escribir(string texto, string nombre, bool modo){
     if(modo){    // modo clasico
         fstream text(nombre, fstream::out);
         text<<texto;
