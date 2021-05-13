@@ -2,20 +2,22 @@
 
 bool codificacion(int semilla, string n_archivo, string n_arvhivo2)
 {
-    bool result=true;
-   string texto, binario;
-   try {
-       texto=leer(n_archivo, true);
-        binario=text2Bin(texto);
-        binario=reglas_codifica(binario,semilla);
-        texto=bin2Text(binario);
-        escribir(texto,n_arvhivo2,false);
-   }  catch (...) {
-       result=false;
+        bool result;
+        string texto, binario;
+        try {
+            texto=leer(n_archivo, true);
+            binario=text2Bin(texto);
+            binario=reglas_codifica(binario,semilla);
+            texto=bin2Text(binario);
+            escribir(texto,n_arvhivo2,false);
+
+        }  catch (...) {
+            result=false;
+        }
+
+        return result;
    }
 
-    return result;
- }
 
 
 string text2Bin(string texto)
@@ -58,7 +60,7 @@ string metodo2(string pedazo)
     string datos;
     datos.push_back(pedazo[pedazo.length()-1]); // se entrega el ultimo caracter del binario a la primera posicion
     for(unsigned long long i=0;i<pedazo.length()-1;i++){
-        datos.push_back(i);
+        datos.push_back(pedazo[i]);
     }
     return datos;
 }
@@ -84,4 +86,46 @@ char conv_letra(string pedazo)
             l+=j*pedazo[i];
     }
     return l;
+}
+
+bool decodificacion(int semilla, string n_archivo, string n_archivo2)
+{
+    bool result;
+    string texto, binario;
+    try {
+        texto=leer(n_archivo2, true);
+        binario=text2Bin(texto);
+        binario=reglas_decodifica(binario,semilla);
+        texto=bin2Text(binario);
+        escribir(texto,n_archivo,false);
+
+    }  catch (...) {
+        result=false;
+    }
+}
+
+string reglas_decodifica(string binario, int semilla)
+{
+    string pedazo, datos;
+    for(unsigned long long i=0;i<binario.length();i++){
+        pedazo.push_back(binario[i]);
+        if((i+1)%semilla==0||i==binario.length()-1){
+            pedazo=metodo2_decodifica(pedazo);
+            datos.append(pedazo);
+            pedazo.clear();
+        }
+    }
+    return datos;
+}
+
+string metodo2_decodifica(string pedazo)
+{
+    string datos;
+    for(unsigned long long i=1;i<pedazo.length();i++){
+        datos.push_back(pedazo[i]);
+    }
+    datos.push_back(pedazo[0]);
+
+    return datos;
+
 }

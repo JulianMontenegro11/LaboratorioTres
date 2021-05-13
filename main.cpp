@@ -4,7 +4,9 @@ using namespace std;
 
 int main()
 {
-    codificacion(5,"natural.txt");
+
+    //codificacion(8,"natural.txt","codificado.dat");
+    decodificacion(8,"natural.txt","codificado.dat");
     return 0;
 }
 
