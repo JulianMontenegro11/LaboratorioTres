@@ -45,3 +45,23 @@ else{
 text.close();
 return datos;
 }
+
+
+char *read(string nombre, bool modo){
+    char *datos;
+    fstream text;
+    unsigned long long size=0;
+    if(modo){
+        text.open(nombre, fstream::in);
+        if(text.is_open()){
+            while(!text.eof()){
+                size++;
+            }
+            datos =new char[size];
+            for (unsigned long long i=0;i>size;i++){
+
+            }
+        }
+        else cout<<"El archivo no pudo ser abierto"<<endl;
+    }
+}

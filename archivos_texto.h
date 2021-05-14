@@ -11,4 +11,5 @@ void crear_txt(string name);
 void escribir(string texto, string nombre, bool modo);
 string leer (string nombreArchivo, bool modo);
 
+char *read(string nombre, bool modo);
 #endif // ARCHIVOS_TEXTO_H
