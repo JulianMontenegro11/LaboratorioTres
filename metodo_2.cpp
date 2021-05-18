@@ -1,13 +1,13 @@
 #include "metodo_2.h"
 
-bool codificacion(int semilla, string n_archivo, string n_arvhivo2)
+bool codificacion_String(int semilla, string n_archivo, string n_arvhivo2)
 {
         bool result;
         string texto, binario;
         try {
             texto=leer(n_archivo, true);
             binario=text2Bin(texto);
-            binario=reglas_codifica(binario,semilla);
+            binario=reglas_codifica_String(binario,semilla);
             texto=bin2Text(binario);
             escribir(texto,n_arvhivo2,false);
 
@@ -41,7 +41,7 @@ string int2Bin(char letra)
    return binario;
 }
 
-string reglas_codifica(string binario, int semilla)
+string reglas_codifica_String(string binario, int semilla)
 {
     string pedazo, datos;
     for(unsigned long long i=0;i<binario.length();i++){
@@ -88,7 +88,7 @@ char conv_letra(string pedazo)
     return l;
 }
 
-bool decodificacion(int semilla, string n_archivo, string n_archivo2)
+bool decodificacion_String(int semilla, string n_archivo, string n_archivo2)
 {
     bool result;
     string texto, binario;

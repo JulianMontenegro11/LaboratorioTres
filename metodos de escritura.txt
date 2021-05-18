@@ -1,0 +1,26 @@
+    
+
+
+Metodos de escritura en archivos de texto
+
+fstream text("ensayo.txt", fstream::out); // escribir datos en un archivo de texto
+    //text<<"Hola mundo"; // agregar texto tipo cout  Hola mundo
+    //text.put('H'); // para agregar un caractet      H
+    //text.write("Hola",2);  // funcion que nos indica cuantos caracteres vamos a usar de una cadena de carateres    Ho
+
+    /*text.write("hola", 4);  Manejo del cursor como puntero    hoxa
+    text.seekp(2);
+    text.put('x');
+    return 0;*/
+
+    //text<<"Hola\na\ntodos";  // se tomma el caracter de contro '\n' como un salto de linea
+
+
+
+
+        fstream text("ensayo.txt", fstream::in); // modo lectura de un archivo  istream
+        if(text.is_open()){  // funcion .is_open() para confirmar que el archivo se abre de manera correcta
+            while (!text.eof()) {  // para recorrer el archivo hasta el caracter de fin de archivo
+               //datos.push_back(text.get());  // funcion push_back para concatenar con un caracter, la opcion get corre el cursor por todo el archivo
+              getline(text,datos2);
+                datos.append(datos2); // funcion append me permite concatenar con otro string
