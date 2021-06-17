@@ -6,7 +6,7 @@ bool codificacion_Char(int semilla, string n_archivo,string n_arvhivo2)
     char *texto, *binario;
     try {
         texto=read(n_archivo, true);
-        binario=textBin(texto);
+        binario=TextBin(texto);
     }  catch (...) {
 
     }
@@ -14,9 +14,10 @@ bool codificacion_Char(int semilla, string n_archivo,string n_arvhivo2)
 
 
 
-void textBin(char *texto)
+char TextBin(char *texto)
 {
     unsigned long long tamaño = 0;
+    char auxiliar;
 
     for(unsigned long long k = 0;;k++){ // calcula el tamaño del arreglo de caracteres array
 
@@ -26,4 +27,19 @@ void textBin(char *texto)
             break;
         }
     }
+    for(unsigned long long i=0;i<tamaño;i++){
+        auxiliar=intBin(texto[i]);
+
+    }
+
+}
+
+char intBin(char letra)
+{
+ char binario[8 ];
+ for(int i=0;i<=7;i++){ // Se tiene en cuenta el caracter de fin de cadena
+     binario[i]=(((letra<<i)&0b10000000)/128); // operacion bit a bit para convertir el binario
+
+ }
+ return binario;
 }

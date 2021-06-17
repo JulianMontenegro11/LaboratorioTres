@@ -3,6 +3,7 @@
 #include "archivos_texto.h"
 
 bool codificacion_Char(int semilla, string n_archivo, string n_arvhivo2);
-void textBin(char *texto);
+char TextBin(char *texto);
+char intBin(char letra);
 
 #endif // METODO_1_H
